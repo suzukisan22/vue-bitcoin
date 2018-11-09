@@ -5,6 +5,7 @@ var app = new Vue({
     hasError: false,
     loading: true,
   },
+  // mountedはインスタンスにDOM要素が紐づいた時に呼ばれます。
   mounted: function(){
     axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
     .then(function(response){
@@ -17,6 +18,7 @@ var app = new Vue({
       this.loading = false
     }.bind(this))
   },
+  // https://jp.vuejs.org/v2/guide/filters.html
   filters: {
     currencyDecimal(value){
       return value.toFixed(2)
